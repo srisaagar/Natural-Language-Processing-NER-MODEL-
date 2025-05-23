@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Aggregation</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://t4.ftcdn.net/jpg/03/83/05/05/240_F_383050585_ulVisrgvZ0DyTLANVW1kLZyJBAFUey2P.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Header */
+        h1 {
+            color: #333;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        /* News list */
+        .news-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .news-list li {
+            background: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .news-list li:hover {
+            transform: scale(1.03);
+        }
+
+        .news-list a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .news-list a:hover {
+            color: #0056b3;
+        }
+
+        /* Extract Button */
+        .extract-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            font-size: 16px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .extract-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Smart News Aggregation with Entity Recognition</h1>
+        <ul class="news-list">
+            {% for article in articles %}
+            <li>
+                <a href="/article/{{ loop.index0 }}">{{ article.Title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <br>
+        <a href="/extract">
+            <button class="extract-btn">Extract Entities from Custom Sentence</button>
+        </a>
+    </div>
+</body>
+</html>
